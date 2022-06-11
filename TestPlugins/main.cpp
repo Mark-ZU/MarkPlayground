@@ -1,7 +1,6 @@
 #include <memory>
 #include <iostream>
-#include "goto.h"
-
+#include "__a_skills.h"
 int main(){
     auto s = std::unique_ptr<Skill>(SkillRegistry<Skill>::create("Goto"));
     s->execute();
