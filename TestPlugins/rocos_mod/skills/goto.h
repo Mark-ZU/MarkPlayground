@@ -1,19 +1,17 @@
-#ifndef __SKILL_GOTO_H__
-#define __SKILL_GOTO_H__
+#pragma once
 #include <fmt/core.h>
 #include "skill.h"
 #include "registry.h"
 class Goto: public Skill{
 public:
-    void execute(){
-        fmt::print("Skill goto execute\n");
+    void execute(const TaskT& task) override{
+        fmt::print("Skill Goto execute-({},{})\n",task.tx,task.ty);
     }
-    void plan(){
-        fmt::print("Skill goto plan\n");
+    void plan(const TaskT& task) override{
+        fmt::print("Skill Goto plan-({},{})\n",task.tx,task.ty);
     }
     static Skill* create(){
         return new Goto();
     }
 };
 REGISTER_SKILL(Goto,Goto::create);
-#endif // __SKILL_GOTO_H__

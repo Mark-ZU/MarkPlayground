@@ -2,6 +2,10 @@ cmake_minimum_required(VERSION 3.4)
 project(testplugin LANGUAGES CXX)
 find_package(fmt REQUIRED)
 
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/scripts)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/scripts)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
+
 set(ROCOS_MOD_DIR "rocos_mod/skills" CACHE STRING "Root dir of rocos_mod.")
 
 include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/CMakeLists.inc)
