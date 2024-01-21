@@ -4,11 +4,15 @@
 #include "registry.h"
 class SmartGoto: public Skill{
 public:
-    void execute(const TaskT& task) override{
+    bool execute(const TaskT& task) override{
         fmt::print("Skill SmartGoto execute-({},{})\n",task.tx,task.ty);
+        return true;
     }
-    void plan(const TaskT& task) override{
+    bool plan(const TaskT& task) override{
         fmt::print("Skill SmartGoto plan-({},{})\n",task.tx,task.ty);
+        setSubTask(SkillRegistry<Skill>::create("Goto"));
+        Skill::plan(task);
+        return true;
     }
     static Skill* create(){
         return new SmartGoto();

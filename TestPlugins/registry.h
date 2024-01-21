@@ -28,6 +28,14 @@ public:
         }
         return map[name]();
     }
+    static std::vector<std::string> getSkillList(){
+        auto&& map = getFactoryMap();
+        std::vector<std::string> skill_list;
+        for(auto& skill : map){
+            skill_list.push_back(skill.first);
+        }
+        return skill_list;
+    }
 private:
     static FactoryMap& getFactoryMap() {
         static FactoryMap map;
